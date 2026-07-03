@@ -124,20 +124,18 @@ finishPopup.style.display="flex";
 // Open Letter
 // -----------------------------
 
-openLetter.onclick=()=>{
+openLetter.onclick = () => {
 
-finishPopup.style.display="none";
+    sendNotification("Letter Opened 💌");
 
-letterContainer.style.display="flex";
+    finishPopup.style.display = "none";
+    letterContainer.style.display = "flex";
 
-setTimeout(()=>{
+    setTimeout(() => {
+        envelope.classList.add("open");
+    }, 500);
 
-envelope.classList.add("open");
-
-},500);
-
-typeLetter();
-
+    typeLetter();
 };
 
 
@@ -212,32 +210,24 @@ With lots of good wishes,
 ❤️
 `;
 
-function typeLetter(){
+function typeLetter() {
+    const box = document.getElementById("typedLetter");
+    box.innerHTML = "";
 
-const box=document.getElementById("typedLetter");
+    let i = 0;
 
-box.innerHTML="";
+    function type() {
+        if (i < text.length) {
+            box.innerHTML += text.charAt(i);
+            i++;
 
-let i=0;
+            box.scrollTop = box.scrollHeight;
 
-const speed=28;
+            setTimeout(type, 28);
+        }
+    }
 
-function type(){
-
-if(i<text.length){
-
-box.innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(type,speed);
-
-}
-
-}
-
-type();
-
+    type();
 }
 // -----------------------------
 // Finish Button
@@ -288,35 +278,7 @@ heart.remove();
 },600);
 
 
-function typeLetter(){
 
-const box=document.getElementById("typedLetter");
-
-box.innerHTML="";
-
-let i=0;
-
-function type(){
-
-if(i<text.length){
-
-box.innerHTML+=text.charAt(i);
-
-i++;
-
-requestAnimationFrame(()=>{
-box.scrollTop=box.scrollHeight;
-});
-
-setTimeout(type,28);
-
-}
-
-}
-
-type();
-
-}
 function sendNotification(page){
 
 emailjs.send("service_2p4immv","__ejs-test-mail-service__",{
@@ -346,14 +308,5 @@ console.log(err);
 window.onload=function(){
 
 sendNotification("Website Opened ❤️");
-
-}
-openLetter.onclick=()=>{
-
-sendNotification("Letter Opened 💌");
-
-finishPopup.style.display="none";
-
-letterContainer.style.display="flex";
 
 }
