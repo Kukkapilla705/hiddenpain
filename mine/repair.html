@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Heart Repair Machine ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#090015,#1a0030,#330033);
+overflow:hidden;
+}
+
+.container{
+max-width:900px;
+text-align:center;
+}
+
+.machine{
+margin-top:30px;
+}
+
+.heart{
+font-size:140px;
+animation:beat 1s infinite;
+transition:1s;
+}
+
+@keyframes beat{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.15);}
+}
+
+.progressBox{
+width:100%;
+height:28px;
+background:rgba(255,255,255,.15);
+border-radius:30px;
+overflow:hidden;
+margin:35px 0;
+}
+
+.progress{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#ff5ca8,#ff0066);
+transition:.2s;
+}
+
+#status{
+font-size:24px;
+line-height:40px;
+margin-top:25px;
+}
+
+.glow{
+color:#ff80bf;
+text-shadow:0 0 20px hotpink;
+}
+
+button{
+display:none;
+margin-top:35px;
+}
+
+#message{
+display:none;
+margin-top:30px;
+font-size:28px;
+animation:fade 1s;
+}
+
+.burst{
+position:fixed;
+font-size:30px;
+animation:fly 3s linear forwards;
+pointer-events:none;
+}
+
+@keyframes fly{
+0%{
+opacity:1;
+transform:translateY(0) scale(.5);
+}
+100%{
+opacity:0;
+transform:translateY(-800px) translateX(var(--x)) rotate(720deg);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Heart Repair Machine</h1>
+
+<p>Trying to repair our little story...</p>
+
+<div class="machine">
+
+<div class="heart" id="heart">💔</div>
+
+<div class="progressBox">
+<div class="progress" id="bar"></div>
+</div>
+
+<div id="status">
+
+Initializing...
+
+</div>
+
+<button id="repair">
+
+😊 Insert Your Smile
+
+</button>
+
+<div id="message">
+
+❤️ Heart Restored ❤️
+
+<br><br>
+
+Everything feels complete when you smile.
+
+<br><br>
+
+Maybe...
+
+we can smile together again?
+
+</div>
+
+<button id="next">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const bar=document.getElementById("bar");
+const status=document.getElementById("status");
+const repair=document.getElementById("repair");
+const next=document.getElementById("next");
+const message=document.getElementById("message");
+const heart=document.getElementById("heart");
+
+let progress=0;
+
+const timer=setInterval(()=>{
+
+progress++;
+
+bar.style.width=progress+"%";
+
+if(progress<25){
+
+status.innerHTML="Scanning emotions...";
+
+}
+
+else if(progress<50){
+
+status.innerHTML="Repairing trust...";
+
+}
+
+else if(progress<75){
+
+status.innerHTML="Collecting beautiful memories...";
+
+}
+
+else if(progress<99){
+
+status.innerHTML="Almost repaired...";
+
+}
+
+if(progress>=100){
+
+clearInterval(timer);
+
+status.innerHTML=`
+
+<span style="color:#ff4d6d;font-size:30px">
+
+⚠ ERROR
+
+</span>
+
+<br><br>
+
+Missing Component
+
+<br>
+
+<span class="glow">
+
+😊 HER SMILE
+
+</span>
+
+`;
+
+repair.style.display="inline-block";
+
+}
+
+},40);
+
+repair.onclick=function(){
+
+heart.innerHTML="❤️";
+
+status.innerHTML="Repair Successful ❤️";
+
+message.style.display="block";
+
+next.style.display="inline-block";
+
+repair.style.display="none";
+
+for(let i=0;i<80;i++){
+
+const h=document.createElement("div");
+
+h.className="burst";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.bottom="-20px";
+
+h.style.setProperty("--x",(Math.random()*400-200)+"px");
+
+h.style.animationDuration=(2+Math.random()*2)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.remove();
+
+},3500);
+
+}
+
+}
+
+next.onclick=function(){
+
+window.location="future.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

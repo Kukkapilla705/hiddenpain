@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Last Thing ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:radial-gradient(circle at center,#1d0033,#090011,#000);
+    overflow-y:auto;
+    overflow-x:hidden;
+    display:block;
+    padding:40px 20px;
+    color:white;
+    font-family:Poppins,sans-serif;
+}
+
+.container{
+    text-align:center;
+    max-width:900px;
+    padding:40px;
+    margin:auto;
+}
+
+/* Gift */
+#gift{
+    font-size:140px;
+    cursor:pointer;
+    transition:.5s;
+    animation:float 2s ease-in-out infinite;
+}
+
+#gift:hover{
+    transform:scale(1.1);
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* Letter box */
+#letter{
+    display:none;
+    margin-top:30px;
+    padding:30px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    font-size:24px;
+    line-height:42px;
+    animation:fade 1.2s;
+}
+
+#typing{
+    white-space:pre-line;
+    min-height:280px;
+}
+
+/* Button */
+#restart{
+    display:none;
+    margin:35px auto;
+    padding:16px 40px;
+    border:none;
+    border-radius:50px;
+    background:#ff4d94;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* Stars */
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
+}
+
+/* Thank you fade */
+.fadeBlock{
+    margin-bottom:25px;
+    font-size:24px;
+    line-height:42px;
+    animation:fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>✨ One Last Surprise</h1>
+
+<p>There's something I wanted to tell you...</p>
+
+<div id="gift">🎁</div>
+
+<div id="letter">
+
+<div id="typing"></div>
+
+<button id="restart">❤️ Can We Start A New Chapter?</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* ⭐ Stars background */
+for(let i=0;i<120;i++){
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    s.style.animationDelay=Math.random()*3+"s";
+    document.body.appendChild(s);
+}
+
+/* 💌 Message */
+const message = `Hi ❤️
+
+If you're reading this... thank you.
+
+I know things haven't been easy.
+
+I know I made mistakes.
+
+I can't change what already happened.
+
+But I can promise that I've learned from it.
+
+You have given me countless beautiful memories.
+
+Your smile,
+your kindness,
+your silly moments...
+
+They still mean the world to me.
+
+I'm not asking you to forget everything.
+
+I'm simply asking for one chance...
+
+to create better memories than the ones we lost.
+
+Whether you say yes today...
+or sometime later...
+
+But everything I felt with you was real.
+
+You matter to me in ways I can't explain easily.
+And I don't want this to end like this.
+
+If there's even a small chance...
+
+I just wanted you to know...
+
+You'll always be someone very special to me.
+
+I'd love to try again and again until I get my Kuchiii smile ❤️`;
+
+/* 🎁 Gift click */
+document.getElementById("gift").onclick = function () {
+
+    this.style.display = "none";
+    document.getElementById("letter").style.display = "block";
+
+    let i = 0;
+
+    function type() {
+        if (i < message.length) {
+            document.getElementById("typing").innerHTML += message.charAt(i);
+            i++;
+            setTimeout(type, 35);
+        } else {
+            document.getElementById("restart").style.display = "block";
+        }
+    }
+
+    setTimeout(type, 600);
+};
+
+/* 💖 Final screen */
+document.getElementById("restart").onclick = function () {
+
+document.body.style.background =
+"linear-gradient(135deg,#FFE5EC,#FFD6E8,#FFF3B0,#FFE8CC)";
+document.body.style.backgroundAttachment="fixed";
+
+document.querySelector(".container").innerHTML = `
+
+<style>
+
+.container{
+    animation:fadeIn 2s ease;
+}
+
+.final-card{
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(18px);
+    border-radius:30px;
+    padding:50px;
+    max-width:900px;
+    margin:auto;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.rose{
+    width:220px;
+    animation:float 3s ease-in-out infinite;
+    margin-bottom:25px;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.sparkle{
+position:fixed;
+font-size:22px;
+animation:up 6s linear infinite;
+pointer-events:none;
+}
+
+@keyframes up{
+0%{
+transform:translateY(100vh) scale(.5);
+opacity:0;
+}
+20%{opacity:1;}
+100%{
+transform:translateY(-10vh) scale(1.5);
+opacity:0;
+}
+}
+
+</style>
+
+<div class="final-card">
+
+<img class="rose"
+src="https://images.unsplash.com/photo-1526045478516-99145907023c?w=600"
+alt="Rose Bouquet">
+
+<h1 style="font-size:75px;">💖</h1>
+
+<h2 style="font-size:40px;color:#d63384;">
+Thank You, Kuchiii 🧿
+</h2>
+
+<p style="font-size:25px;line-height:48px;color:#5c2346;">
+
+If you smiled even once while reading all this...<br><br>
+
+Then this little surprise has already become worth every moment I spent making it. ❤️
+
+<br><br>
+
+With quiet care and warm wishes,<br>
+From someone who will always be happy to see you smile. ❤️
+
+<br><br>
+
+And maybe… one day,<br>
+our story will quietly continue from where it paused. 🌸
+
+<br><br>
+
+No pressure.<br>
+No expectations.<br>
+Just two hearts finding comfort in each other's conversations again.
+
+<br><br>
+
+And before we even realize it...<br>
+our talks become endless,<br>
+our laughter becomes effortless,<br>
+and your cute little smile becomes my favorite part of every day. 🧿😻❤️
+
+<br><br>
+
+🌹 Until then...<br>
+Keep smiling, because somewhere,<br>
+there's someone whose day becomes brighter just imagining that smile. ✨
+
+</p>
+
+</div>
+
+`;
+
+
+// Floating Sparkles & Hearts
+
+setInterval(()=>{
+
+const icons=["💖","🌸","✨","💗","💕","🦋"];
+
+const e=document.createElement("div");
+
+e.className="sparkle";
+
+e.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.animationDuration=(Math.random()*3+4)+"s";
+
+document.body.appendChild(e);
+
+setTimeout(()=>e.remove(),7000);
+
+},350);
+
+};
+
+</script>
+
+</body>
+</html>

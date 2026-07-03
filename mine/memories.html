@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Memory Scanner ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+
+background:linear-gradient(135deg,#050510,#12001d,#250033);
+
+
+
+}
+body{
+    background:linear-gradient(135deg,#050510,#12001d,#250033);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    overflow-y:auto;
+    overflow-x:hidden;
+    color:white;
+    padding:40px 20px;
+}   
+
+.container{
+
+max-width:900px;
+
+}
+.container{
+    width:90%;
+    max-width:900px;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    text-align:center;
+}
+
+#scanner{
+
+width:100%;
+
+height:6px;
+
+background:#ff4d94;
+
+margin:40px 0;
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:20px;
+
+}
+
+#line{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:white;
+
+animation:scan 2s linear infinite;
+
+}
+
+@keyframes scan{
+
+0%{transform:translateX(-100%);}
+100%{transform:translateX(100%);}
+
+}
+
+.card{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.8s;
+
+margin:18px 0;
+
+padding:22px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+font-size:22px;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:none;
+
+}
+
+#result{
+
+display:none;
+
+margin-top:35px;
+
+font-size:28px;
+
+line-height:45px;
+
+animation:fade 1s;
+
+}
+
+button{
+
+display:none;
+
+margin-top:35px;
+
+}
+#next{
+    display:none;
+    margin:40px auto;
+    position:relative;
+    z-index:1000;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🧠 Memory Scanner</h1>
+
+<p>Searching every beautiful moment...</p>
+
+<div id="scanner">
+
+<div id="line"></div>
+
+</div>
+
+<div class="card">😊 First smile detected...</div>
+
+<div class="card">😂 Unlimited silly laughs found...</div>
+
+<div class="card">❤️ Thousands of happy conversations...</div>
+
+<div class="card">🥹 Moments that still make my heart smile...</div>
+
+<div class="card">🌸 Countless reasons I don't want to lose you...</div>
+
+<div id="result">
+
+<h2>Scan Complete ❤️</h2>
+
+<p>
+
+Deleting memories...
+
+<br><br>
+
+10%
+
+<br>
+
+32%
+
+<br>
+
+57%
+
+<br>
+
+ERROR ❌
+
+<br><br>
+
+Unable to delete...
+
+because every memory is permanently saved in my heart. ❤️
+
+</p>
+
+</div>
+
+<button id="next">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+const result=document.getElementById("result");
+
+const next=document.getElementById("next");
+
+let i=0;
+
+function reveal(){
+
+if(i<cards.length){
+
+cards[i].classList.add("show");
+
+i++;
+
+setTimeout(reveal,1400);
+
+}else{
+
+setTimeout(()=>{
+
+result.style.display="block";
+
+next.style.display="block";
+next.style.margin="40px auto";
+
+},1500);
+
+}
+
+}
+
+reveal();
+
+next.onclick=function(){
+
+window.location="repair.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

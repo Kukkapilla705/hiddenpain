@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smile Detector ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#060014,#140021,#28003a);
+overflow:hidden;
+}
+
+.container{
+max-width:900px;
+}
+
+.circle{
+
+width:260px;
+height:260px;
+
+border-radius:50%;
+
+margin:40px auto;
+
+border:8px solid hotpink;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:90px;
+
+animation:pulse 2s infinite;
+
+box-shadow:0 0 40px hotpink;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(.95);
+}
+
+50%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(.95);
+}
+
+}
+
+#status{
+
+font-size:28px;
+
+line-height:45px;
+
+margin-top:30px;
+
+}
+
+button{
+
+display:none;
+
+margin-top:40px;
+
+}
+
+.sparkle{
+
+position:fixed;
+
+font-size:30px;
+
+animation:fly 3s linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes fly{
+
+0%{
+opacity:1;
+transform:translateY(0) scale(.5);
+}
+
+100%{
+
+opacity:0;
+
+transform:translateY(-900px)
+translateX(var(--x))
+rotate(720deg);
+
+}
+
+}
+
+.success{
+
+font-size:36px;
+
+color:#ff87c5;
+
+animation:fade 1s;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>😊 Smile Detection System</h1>
+
+<p>Scanning the happiest face...</p>
+
+<div class="circle">
+
+😊
+
+</div>
+
+<div id="status">
+
+Searching...
+
+</div>
+
+<button id="scan">
+
+I'm Smiling 😊
+
+</button>
+
+<button id="next">
+
+Open Final Surprise ❤️
+
+</button>
+
+</div>
+
+<script>
+
+const status=document.getElementById("status");
+
+const scan=document.getElementById("scan");
+
+const next=document.getElementById("next");
+
+setTimeout(()=>{
+
+status.innerHTML=`
+
+❌ Smile Not Found
+
+<br><br>
+
+Suggested Fix:
+
+<br>
+
+Press the button
+
+only if you're smiling 😊
+
+`;
+
+scan.style.display="inline-block";
+
+},3500);
+
+scan.onclick=function(){
+
+scan.style.display="none";
+
+status.innerHTML=`
+
+<div class="success">
+
+❤️ Smile Detected ❤️
+
+</div>
+
+<br>
+
+Brightness Level
+
+100%
+
+<br><br>
+
+Mood Improved
+
+∞%
+
+<br><br>
+
+There it is...
+
+The smile I missed the most.
+
+😊
+
+`;
+
+for(let i=0;i<120;i++){
+
+const s=document.createElement("div");
+
+s.className="sparkle";
+
+s.innerHTML=Math.random()>.5?"❤️":"✨";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.bottom="-30px";
+
+s.style.setProperty("--x",(Math.random()*500-250)+"px");
+
+s.style.animationDuration=(2+Math.random()*2)+"s";
+
+document.body.appendChild(s);
+
+setTimeout(()=>{
+
+s.remove();
+
+},3500);
+
+}
+
+next.style.display="inline-block";
+
+}
+
+next.onclick=function(){
+
+window.location="final.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
