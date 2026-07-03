@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bond Analyzer ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#080812,#170021,#2b0038);
+}
+
+.container{
+max-width:800px;
+}
+
+.progressBox{
+width:100%;
+height:35px;
+background:rgba(255,255,255,.15);
+border-radius:50px;
+overflow:hidden;
+margin-top:40px;
+margin-bottom:30px;
+}
+
+.progress{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(90deg,#ff4b91,#ff0055);
+
+transition:.15s;
+
+}
+
+#percent{
+
+font-size:45px;
+
+margin-top:20px;
+
+}
+
+#status{
+
+margin-top:30px;
+
+font-size:25px;
+
+line-height:40px;
+
+}
+
+.error{
+
+color:#ff3c6f;
+
+animation:glitch .25s infinite;
+
+font-weight:bold;
+
+}
+
+.success{
+
+font-size:42px;
+
+color:#00ffae;
+
+animation:pop .8s infinite alternate;
+
+}
+
+@keyframes glitch{
+
+0%{
+
+transform:translate(2px,0);
+
+}
+
+25%{
+
+transform:translate(-2px,1px);
+
+}
+
+50%{
+
+transform:translate(2px,-1px);
+
+}
+
+75%{
+
+transform:translate(-2px,-2px);
+
+}
+
+100%{
+
+transform:none;
+
+}
+
+}
+
+@keyframes pop{
+
+from{
+
+transform:scale(1);
+
+}
+
+to{
+
+transform:scale(1.05);
+
+}
+
+}
+
+.crack{
+
+animation:shake .25s infinite;
+
+}
+
+@keyframes shake{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+25%{
+
+transform:translateX(6px);
+
+}
+
+50%{
+
+transform:translateX(-6px);
+
+}
+
+75%{
+
+transform:translateX(5px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
+
+}
+
+#next{
+
+display:none;
+
+margin-top:40px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Relationship Analyzer</h1>
+
+<p>Scanning our connection...</p>
+
+<div class="progressBox">
+
+<div class="progress" id="bar"></div>
+
+</div>
+
+<div id="percent">0%</div>
+
+<div id="status">
+
+Initializing...
+
+</div>
+
+<button id="next">
+
+Next Surprise ❤️
+
+</button>
+
+</div>
+
+<script>
+
+const bar=document.getElementById("bar");
+
+const percent=document.getElementById("percent");
+
+const status=document.getElementById("status");
+
+const next=document.getElementById("next");
+
+let value=0;
+
+let timer=setInterval(()=>{
+
+value++;
+
+bar.style.width=value+"%";
+
+percent.innerHTML=value+"%";
+
+if(value<30){
+
+status.innerHTML="Analyzing conversations...";
+
+}
+
+else if(value<60){
+
+status.innerHTML="Checking memories...";
+
+}
+
+else if(value<90){
+
+status.innerHTML="Calculating love level...";
+
+}
+
+else{
+
+status.innerHTML="Almost done...";
+
+}
+
+if(value>=100){
+
+clearInterval(timer);
+
+setTimeout(glitch,800);
+
+}
+
+},45);
+
+function glitch(){
+
+document.body.classList.add("crack");
+
+status.innerHTML="<span class='error'>SYSTEM ERROR!</span>";
+
+percent.innerHTML="⚠";
+
+bar.style.background="red";
+
+setTimeout(showResult,2200);
+
+}
+
+function showResult(){
+
+document.body.classList.remove("crack");
+
+bar.style.background="linear-gradient(90deg,#ff4b91,#ff0055)";
+
+status.innerHTML=`
+
+<div class="success">
+
+❤️ UNBREAKABLE ❤️
+
+</div>
+
+<br>
+
+Reason:
+
+<br><br>
+
+No machine can measure
+
+something this special.
+
+<br><br>
+
+Bond Status:
+
+<h2>∞ FOREVER CONNECTED</h2>
+
+`;
+
+percent.innerHTML="∞";
+
+next.style.display="inline-block";
+
+}
+
+next.onclick=function(){
+
+window.location="memories.html";
+
+};
+
+</script>
+
+</body>
+
+</html>

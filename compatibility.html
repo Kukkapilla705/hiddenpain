@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Compatibility Test ❤️</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#090014,#1b0029,#34003e);
+overflow:hidden;
+}
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    margin-left: 25%;
+    padding:40px 20px;
+    display:block;
+}
+
+button{
+    display:none;
+    margin:40px auto;
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:40px;
+    background:#ff2f7d;
+    color:white;
+    cursor:pointer;
+    display:block;
+}
+.container{
+max-width:900px;
+}
+
+.question{
+display:none;
+margin:30px auto;
+padding:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
+font-size:28px;
+animation:fade .7s;
+}
+
+.answer{
+margin-top:20px;
+font-size:38px;
+color:#66ff99;
+font-weight:bold;
+}
+
+#result{
+display:none;
+margin-top:40px;
+font-size:32px;
+line-height:55px;
+animation:fade 1s;
+}
+
+.big{
+font-size:70px;
+color:#ff5ea8;
+text-shadow:0 0 20px hotpink;
+}
+
+button{
+display:none;
+margin-top:40px;
+}
+
+@keyframes pop{
+from{
+transform:scale(.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.overload{
+animation:pop .8s infinite alternate;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💖 AI Compatibility Test</h1>
+
+<p>Checking my heart's answers...</p>
+
+<div class="question">
+Do I still care about you?
+<div class="answer">✅ YES</div>
+</div>
+
+<div class="question">
+Would I choose you again?
+<div class="answer">✅ ALWAYS</div>
+</div>
+
+<div class="question">
+Do our memories still matter?
+<div class="answer">❤️ EVERY SINGLE ONE</div>
+</div>
+
+<div class="question">
+Would I try again if you gave me one chance?
+<div class="answer">💯 WITHOUT A DOUBT</div>
+</div>
+
+<div class="question">
+Would I rather fix things than lose you?
+<div class="answer">❤️ ABSOLUTELY</div>
+</div>
+
+<div id="result">
+
+<div class="big overload">
+
+1000000%
+
+</div>
+
+<br>
+
+Compatibility Level
+
+<br><br>
+
+⚠ WARNING
+
+<br><br>
+
+Calculator Overloaded
+
+<br><br>
+
+Reason:
+
+Some bonds cannot be calculated.
+
+❤️
+
+</div>
+
+<button id="next">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+<script>
+
+const questions=document.querySelectorAll(".question");
+
+const result=document.getElementById("result");
+
+const next=document.getElementById("next");
+
+let i=0;
+
+function reveal(){
+
+if(i<questions.length){
+
+questions[i].style.display="block";
+
+i++;
+
+setTimeout(reveal,1800);
+
+}else{
+
+setTimeout(()=>{
+
+result.style.display="block";
+next.style.display="inline-block";
+
+},1800);
+
+}
+
+}
+
+reveal();
+
+next.onclick=function(){
+
+window.location="smile.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Future Predictor</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#04040d,#10001f,#220033);
+
+}
+body{
+    background:linear-gradient(135deg,#04040d,#10001f,#220033);
+    min-height:100vh;
+    overflow-y:auto;
+    padding:40px 20px;
+    color:white;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+button{
+    display:none;
+    margin:40px auto;
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:40px;
+    background:#ff2f7d;
+    color:white;
+    cursor:pointer;
+    display:block;
+    z-index:999;
+}
+.container{
+max-width:900px;
+text-align:center;
+}
+
+#screen{
+margin-top:30px;
+padding:30px;
+background:black;
+border:2px solid #00ffb3;
+border-radius:20px;
+font-family:monospace;
+font-size:24px;
+color:#00ff99;
+text-align:left;
+min-height:350px;
+box-shadow:0 0 30px rgba(0,255,170,.4);
+}
+
+.line{
+opacity:0;
+animation:fade .8s forwards;
+margin:14px 0;
+}
+
+.glitch{
+color:#ff4d6d;
+animation:glitch .15s infinite;
+font-weight:bold;
+}
+
+.success{
+color:#ff80bf;
+font-size:30px;
+text-align:center;
+margin-top:20px;
+}
+
+button{
+display:none;
+margin-top:35px;
+}
+
+@keyframes glitch{
+0%{transform:translateX(0);}
+25%{transform:translateX(3px);}
+50%{transform:translateX(-3px);}
+75%{transform:translateX(2px);}
+100%{transform:translateX(0);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 AI Future Predictor</h1>
+
+<p>Running millions of future possibilities...</p>
+
+<div id="screen"></div>
+
+<button id="next">
+Continue ❤️
+</button>
+
+</div>
+
+<script>
+
+const screen=document.getElementById("screen");
+const next=document.getElementById("next");
+
+const messages=[
+
+"Booting Future Engine...",
+
+"Analyzing emotions...",
+
+"Checking conversations...",
+
+"Loading memories...",
+
+"Creating predictions...",
+
+"",
+
+"❌ Future #1 : We stop talking forever.",
+
+"Probability : 14%",
+
+"",
+
+"❌ Future #2 : We become strangers.",
+
+"Probability : 7%",
+
+"",
+
+"❤️ Future #3 : We laugh together again.",
+
+"Probability : Calculating...",
+
+"",
+
+"⚠ Unexpected Error...",
+
+"System Glitch...",
+
+"Prediction Failed."
+
+];
+
+let index=0;
+
+function addLine(){
+
+if(index<messages.length){
+
+const div=document.createElement("div");
+
+div.className="line";
+
+div.innerHTML=messages[index];
+
+screen.appendChild(div);
+
+screen.scrollTop=screen.scrollHeight;
+
+index++;
+
+setTimeout(addLine,900);
+
+}
+
+else{
+
+setTimeout(showFinal,1200);
+
+}
+
+}
+
+function showFinal(){
+
+screen.innerHTML+=`
+
+<br>
+
+<div class="glitch">
+
+SYSTEM MESSAGE
+
+</div>
+
+<br>
+
+<div class="success">
+
+Future Cannot Be Predicted ❤️
+
+</div>
+
+<br>
+
+Reason:
+
+<br><br>
+
+The future depends on...
+
+<br><br>
+
+😊 ONE BEAUTIFUL SMILE
+
+<br><br>
+
+and...
+
+<br>
+
+One chance to write
+
+a happier next chapter together.
+
+`;
+next.style.display="block";
+next.style.margin = "40px auto";
+
+}
+
+addLine();
+
+next.onclick=function(){
+
+window.location="compatibility.html";
+
+};
+
+</script>
+
+</body>
+</html>
