@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pop The Balloons ❤️</title>
+
+<link rel="stylesheet" href="css/balloon.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div id="hearts"></div>
+
+<!-- Heading -->
+
+<div class="heading">
+
+<h1>🎈 Pop Every Balloon 🎈</h1>
+
+<p>Each balloon hides a little surprise ❤️</p>
+
+</div>
+
+<!-- Balloons -->
+
+<div class="sky">
+
+<div class="balloon red" data-card="0"></div>
+
+<div class="balloon pink" data-card="1"></div>
+
+<div class="balloon blue" data-card="2"></div>
+
+<div class="balloon purple" data-card="3"></div>
+
+<div class="balloon yellow" data-card="4"></div>
+
+</div>
+
+<!-- Surprise Popup -->
+
+<div id="popup" class="popup">
+
+<div class="popup-card">
+
+<img id="photo">
+
+<h2 id="title"></h2>
+
+<p id="message"></p>
+
+<button id="next">
+
+Next Balloon ❤️
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Final Popup -->
+
+<div id="finishPopup" class="popup">
+
+<div class="finish-card">
+
+<div class="emoji">
+
+💖
+
+</div>
+
+<h1>
+
+You popped them all.
+
+</h1>
+
+<p>
+
+Every balloon carried a little reason why you're special.
+
+<br><br>
+
+Now it's time for the biggest one...
+
+</p>
+
+<div class="flowers">
+
+✨ 🌸 💕 🌸 ✨
+
+</div>
+
+<button id="openLetter">
+
+💌 Open Your Letter
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Envelope -->
+
+<div id="letterContainer">
+
+<div class="letterPage">
+
+<div class="paper">
+
+<h1>💌 For My Kuchiii ❤️</h1>
+
+<div class="paperContent">
+
+<div class="leftPanel">
+
+<img src="images\lp.png">
+
+</div>
+
+<div class="rightPanel">
+
+<div id="typedLetter" class="typedLetter"></div>
+
+<button id="finish">
+
+❤️ One more Surprise
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="envelope">
+
+<div class="front"></div>
+
+<div class="flap"></div>
+
+<div class="letter">
+
+<img src="images/photo.jpg" class="letterPhoto">
+
+<h2>For My Kuchiii ❤️</h2>
+
+<div class="letterText">
+
+<p>
+
+This is where your beautiful letter will appear.
+
+We'll add the typewriter animation in Part 3.
+
+</p>
+
+</div>
+
+<button id="finish">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/balloon.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init("BUWo03knhwz50asqd");
+</script>
+
+</body>
+
+</html>

@@ -46,7 +46,74 @@ max-width:900px;
     backdrop-filter:blur(20px);
     text-align:center;
 }
+.popup{
 
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+.popup-card{
+
+width:90%;
+max-width:450px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(18px);
+
+padding:35px;
+
+border-radius:25px;
+
+text-align:center;
+
+animation:pop .5s ease;
+
+}
+
+.popup-card button{
+
+display:inline-block;
+
+margin:15px;
+
+padding:12px 30px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+}
+
+@keyframes pop{
+
+from{
+transform:scale(.6);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
 #scanner{
 
 width:100%;
@@ -176,44 +243,97 @@ margin-top:35px;
 
 <h2>Scan Complete ❤️</h2>
 
+<div id="progressText">
+
 <p>
-
 Deleting memories...
-
 <br><br>
 
 10%
-
 <br>
-
 32%
-
 <br>
-
 57%
-
 <br>
-
-ERROR ❌
-
+89%
 <br><br>
 
-Unable to delete...
-
-because every memory is permanently saved in my heart. ❤️
-
+<span style="color:#ff4d94;font-weight:bold;">ERROR ❌</span>
 </p>
 
 </div>
 
-<button id="next">
+<div id="systemMessage" style="display:none;">
 
-Continue ❤️
+<p>
+⚠ Memory Protection Activated...
+<br><br>
 
-</button>
+Trying Force Delete...
+<br>
+
+██████░░░░ 60%
+<br>
+
+████████░░ 80%
+<br>
+
+██████████ 100%
+<br><br>
+
+💥 ACCESS DENIED
+</p>
 
 </div>
 
+<div id="finalMessage" style="display:none;">
+
+<h2 style="color:#ff8ac7;">
+❤️ Why did it fail?
+</h2>
+
+<p style="font-size:26px;line-height:45px;">
+
+Because...
+
+those memories don't belong to my brain anymore.
+
+They live inside my heart. ❤️
+
+<br><br>
+
+No system...
+
+No time...
+
+No distance...
+
+can ever delete them.
+
+🥹🌸
+
+</p>
+
+
+<!-- result -->
+<!-- container -->
+<button id="continueBtn" style="
+display:none;
+margin:40px auto;
+padding:15px 40px;
+font-size:22px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:linear-gradient(90deg,#ff4d94,#ff8a5b);
+color:white;
+box-shadow:0 10px 25px rgba(255,77,148,.4);
+"><h2 style="color:#e1ece1;">If You Smile<br> Access Granted✅</h2>
+🎈 Continue to Next Surprise ❤️
+</button>
+</div> <!-- finalMessage -->
+</div> <!-- result -->
+</div> <!-- container -->
 <script>
 
 const cards=document.querySelectorAll(".card");
@@ -239,9 +359,27 @@ setTimeout(reveal,1400);
 setTimeout(()=>{
 
 result.style.display="block";
+setTimeout(() => {
 
-next.style.display="block";
-next.style.margin="40px auto";
+document.getElementById("progressText").style.display="none";
+
+document.getElementById("systemMessage").style.display="block";
+
+},2500);
+
+setTimeout(() => {
+
+document.getElementById("systemMessage").style.display="none";
+
+document.getElementById("finalMessage").style.display="block";
+
+},6500);
+
+setTimeout(()=>{
+
+document.getElementById("continueBtn").style.display="block";
+
+},10500);
 
 },1500);
 
@@ -251,11 +389,21 @@ next.style.margin="40px auto";
 
 reveal();
 
-next.onclick=function(){
+const continueBtn = document.getElementById("continueBtn");
 
-window.location="repair.html";
+continueBtn.addEventListener("click", function () {
 
-}
+    continueBtn.innerHTML = "✨ Preparing Your Next Surprise...";
+
+    continueBtn.disabled = true;
+
+    setTimeout(function () {
+
+        window.location.href = "balloon.html";
+
+    },1200);
+
+});
 
 </script>
 
